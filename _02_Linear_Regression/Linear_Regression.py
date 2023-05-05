@@ -18,7 +18,7 @@ def lasso(data):
     X, y = read_data()
     WEIGHT = data
     Y = np.dot(WEIGHT, X.T)
-    Z = 5000
+    Z = 1000
     RATE = 1e-11
     for i in range(int(2e5)):
         Y = np.dot(WEIGHT, X.T)
