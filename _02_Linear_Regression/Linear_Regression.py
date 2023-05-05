@@ -19,10 +19,10 @@ def lasso(data):
     WEIGHT = data
     Y = np.dot(WEIGHT, X.T)
     Z = 3000
-    RATE = 0.00000000086
+    RATE = 1e-10
     for i in range(int(2e5)):
         Y = np.dot(WEIGHT, X.T)
-        W = np.dot(Y - y, x) + Z * np.sign(WEIGHT)
+        W = np.dot(Y - y, X) + Z * np.sign(WEIGHT)
         WEIGHT = WEIGHT * (1 - (RATE * Z / 6)) - W * RATE
     return WEIGHT @ data
 
