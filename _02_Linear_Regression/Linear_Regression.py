@@ -10,7 +10,7 @@ except ImportError as e:
 
 def ridge(data):
     X, Y = read_data()
-    Z = -0.1
+    Z = -0.5
     WEIGHT = np.dot(np.linalg.inv((np.dot(X.T, X) + np.dot(Z, np.eye(6)))), np.dot(X.T, Y))
     return WEIGHT @ data
     
@@ -18,7 +18,7 @@ def lasso(data):
     X, y = read_data()
     WEIGHT = data
     Y = np.dot(WEIGHT, X.T)
-    Z = 3000
+    Z = 1000
     RATE = 1e-10
     for i in range(int(2e5)):
         Y = np.dot(WEIGHT, X.T)
